@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="ckb" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>سوپڕایز</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #ff69b4 0%, #da70d6 40%, #9370db 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+        }
+
+        .page {
+            display: none;
+            width: 100%;
+            max-width: 500px;
+            text-align: center;
+            padding: 24px;
+            animation: fadeIn 0.5s ease;
+        }
+
+        .page.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .top-text {
+            font-size: 2rem;
+            font-weight: bold;
+            color: white;
+            text-shadow: 2px 2px 8px rgba(0,0,0,0.3);
+            margin-bottom: 80px;
+            padding-top: 20px;
+            line-height: 1.5;
+        }
+
+        .center-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 280px;
+            gap: 20px;
+        }
+
+        .btn {
+            background: linear-gradient(45deg, #ff1493, #8a2be2);
+            color: white;
+            border: none;
+            padding: 16px 56px;
+            font-size: 1.5rem;
+            font-weight: bold;
+            border-radius: 50px;
+            cursor: pointer;
+            box-shadow: 0 4px 16px rgba(0,0,0,0.3);
+            transition: all 0.25s ease;
+            font-family: inherit;
+        }
+
+        .btn:hover {
+            transform: scale(1.08);
+            box-shadow: 0 6px 24px rgba(0,0,0,0.4);
+        }
+
+        .btn:active {
+            transform: scale(0.95);
+        }
+
+        .image-container {
+            width: 220px;
+            height: 220px;
+            border-radius: 24px;
+            overflow: hidden;
+            border: 5px solid white;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.25);
+            background: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .image-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .bottom-text {
+            font-size: 1.6rem;
+            font-weight: bold;
+            color: white;
+            text-shadow: 2px 2px 6px rgba(0,0,0,0.3);
+        }
+
+        @media (max-width: 480px) {
+            .top-text { font-size: 1.5rem; margin-bottom: 60px; }
+            .btn { font-size: 1.2rem; padding: 14px 44px; }
+            .image-container { width: 180px; height: 180px; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="page active" id="page1">
+        <div class="top-text">سوپڕایزێکم بۆت هەیە</div>
+        <div class="center-content">
+            <button class="btn" onclick="goToPage(2)">باشە</button>
+        </div>
+    </div>
+
+    <div class="page" id="page2">
+        <div class="top-text">سووپڕایزەکە کەشف دەکەم</div>
+        <div class="center-content">
+            <button class="btn" onclick="goToPage(3)">باشەە</button>
+        </div>
+    </div>
+
+    <div class="page" id="page3">
+        <div class="top-text">باشە تەواو کاکە 😂</div>
+        <div class="center-content">
+            <button class="btn" onclick="goToPage(4)">باشە😡</button>
+        </div>
+    </div>
+
+    <div class="page" id="page4">
+        <div class="top-text">بەخوا تەواو دایگرە😢</div>
+        <div class="center-content">
+            <button class="btn" onclick="goToPage(5)">باشە</button>
+        </div>
+    </div>
+
+    <div class="page" id="page5">
+        <div class="top-text">ئەمەتە سوپڕایززز😂🤭</div>
+        <div class="center-content">
+            <div class="image-container">
+                <img src="icon.png" alt="سوپڕایز">
+            </div>
+            <div class="bottom-text">ڕەنجە سوووک😂</div>
+        </div>
+    </div>
+
+    <script>
+        function goToPage(pageNum) {
+            document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+            document.getElementById('page' + pageNum).classList.add('active');
+        }
+    </script>
+
+</body>
+</html>
